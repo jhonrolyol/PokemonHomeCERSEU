@@ -1,0 +1,86 @@
+{% extends "owner/base_generic.html" %}
+
+{% block content %}
+    <h2>Bienvenidos a mi primera aplicación</h2>
+{#    <p><strong>Nombre de Owner: </strong>{{ data.nombre }}</p>#}
+
+{% comment %}    {% if data.nombre %}
+        <div>
+            <p><strong>Nombre de Owner: </strong>{{ data.nombre }}</p>
+        </div>
+    {% else %}
+        <div>
+            <p><strong>Nombre de Owner: </strong>Sin nombre</p>
+        </div>
+    {% endif %}{% endcomment %}
+
+ {% comment %}   <div>
+        {% if data.edad < 30 %}
+            <p><strong>Edad de owner: </strong>{{ data.edad }}</p>
+        {% endif %}
+    </div>{% endcomment %}
+
+ {% comment %}   <div>
+        <p><strong>País: </strong>{{ data.pais_nacimiento }}</p>
+    </div>
+
+    <div>
+        <p><strong>DNI: </strong>{{ data.dni }}</p>
+    </div>{% endcomment %}
+
+    {% if data.dni %}
+        {% if not data.vigente %}
+            <h4>Su pase ya está por vencer completamente</h4>
+        {% endif %}
+    {% endif %}
+
+    {% comment %}<ul>
+        {% for owner in data %}
+            <li>
+                <p><strong>Nombre de Owner: </strong>{{ owner.nombre }}</p>
+                <p><strong>Edad: </strong> {{ owner.edad }}</p>
+            </li>
+        {% endfor %}
+    </ul>{% endcomment %}
+
+    {% comment %}<ul>
+        {% for owner in data reversed %}
+            <li>
+                <p><strong>Nombre de Owner: </strong>{{ owner.nombre }}</p>
+                <p><strong>Edad: </strong> {{ owner.edad }}</p>
+                <p><strong>País: </strong> {{ owner.pais_nacimiento }}</p>
+            </li>
+        {% endfor %}
+    </ul>{% endcomment %}
+
+{% comment %}    <div>
+        {% for owner in data %}
+            {% if owner.edad and owner.dni %}
+                <p><strong>Edad de Owner: </strong>{{ owner.edad }}</p>
+                <p>El dato de edad del Owner {{ owner.nombre | cut:" " }}, es correcta</p>
+                {% if owner.pokemons %}
+                    {% for pokemon in owner.pokemons %}
+                        {{ pokemon.nombre_pokemon }},
+                        tiene los siguientes ataques, que son {{ pokemon.ataques | length }}:
+                        {% for ataque in pokemon.ataques %}
+                            {{ ataque }},
+                        {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <p>No se encontraron registro de pokemons para este Owner</p>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>{% endcomment %}
+
+    <div>
+        {% for owner in data %}
+            {% if owner.edad and owner.dni %}
+                <p><strong>Edad de Owner: </strong>{{ owner.edad }}</p>
+                <p>El dato de edad del Owner {{ owner.nombre | cut:" " }}, es correcta</p>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
