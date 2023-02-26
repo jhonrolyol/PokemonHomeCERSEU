@@ -8,3 +8,6 @@ class Owner(models.Model):
    pais = models.CharField(max_length=27, default= '')
    dni = models.CharField(max_length=8, default='00000000')
    vigente = models.BooleanField(default=True)
+
+   def __str__(self):
+      return "{} de {} tiene {} años".format(self.nombre, self.pais, self.edad)
