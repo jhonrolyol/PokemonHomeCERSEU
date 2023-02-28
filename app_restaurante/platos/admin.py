@@ -6,4 +6,3 @@ from .models import Platos
 class PlatosAdmin(admin.ModelAdmin):
     list_display = ("nombre","precio")
     list_filter = ("nombre",)
-
